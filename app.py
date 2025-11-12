@@ -19,10 +19,13 @@ def index():
         c.execute("INSERT INTO expenses (name, amount, category, date) VALUES (?, ?, ?, ?)",
                   (name, amount, category, date))
         conn.commit()
-    c.execute("SELECT * FROM expenses")
+   c.execute("SELECT * FROM expenses")
     expenses = c.fetchall()
-    return render_template('index.html', expenses=expenses)
-
+   c.execute("SELECT SUM(amount) FROM expenses")
+    total = c.fetchone()[0]
+    if total is None:
+        total = 0.0
+    return render_template('index.html', expenses=expenses, total=total)
 if __name__ == '__main__':
     app.run(debug=True)
 
