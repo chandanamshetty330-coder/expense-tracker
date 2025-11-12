@@ -1,0 +1,5 @@
+body { font-family: Arial; text-align: center; }
+form input { margin: 5px; padding: 5px; }
+table { margin: auto; border-collapse: collapse; width: 60%; }
+th, td { border: 1px solid black; padding: 8px; }
+th { background-color: #4CAF50; color: white; }
